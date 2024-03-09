@@ -1,4 +1,5 @@
 import MovieList from "./cine/MovieList";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SaidVer from "./components/SaidVer";
 
@@ -12,6 +13,7 @@ function App() {
           <MovieList></MovieList>
         </div>
       </main>
+      <Footer></Footer>
     </>
   );
 }
