@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { getImgUrl } from "../utlis/sine-utlis";
-const MovieDetelsModal = ({ movie, onClose }) => {
+import { MovieContext } from "../context";
+const MovieDetelsModal = ({ movie, onClose, handleAddtoCard }) => {
+  // const {cartData,setCartData} =  useContext(MovieContext)
+  // const onAddCart = (e, movie) => {
+  //   e.stopPropagation();
+  //   const found = cartData.find(item => item.id === movie.id);
+  //   if(!found){
+  //     setCartData([...cartData,movie])
+  //   }else{
+  //     console.log('cart is alredy  added')
+  //   }
+
+  // };
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[600px] lg:max-w-[984px] p-4 max-h-[90vh] overflow-auto">
@@ -8,7 +20,7 @@ const MovieDetelsModal = ({ movie, onClose }) => {
           <img
             className="sm:order-2 w-full object-cover h-full max-sm:max-h-[300px]"
             src={getImgUrl(movie.cover)}
-            alt=""
+            alt={movie.title}
           />
           <div className="p-5 lg:p-11">
             <div className="">
@@ -27,6 +39,7 @@ const MovieDetelsModal = ({ movie, onClose }) => {
               <a
                 className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
                 href="#"
+                onClick={(e) => handleAddtoCard(e, movie)}
               >
                 <img src="./assets/tag.svg" alt="" />
                 <span>${movie.price} | Add to Cart</span>

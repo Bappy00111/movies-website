@@ -7,7 +7,7 @@ export default {
         center: true,
         padding: "1.25rem",
       },
-      color: {
+      colors: {
         primary: "#00d991",
       },
     },
